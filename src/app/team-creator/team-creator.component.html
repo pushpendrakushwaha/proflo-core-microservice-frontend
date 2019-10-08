@@ -1,0 +1,49 @@
+<mat-dialog-content>
+  <div class="team-creator-container">
+    <!-- <div class="team-creator-hero-unit"></div> -->
+    <!-- <img src="../../assets/Teamwork_Illustration_VectorForFree-01.jpg" alt=""> -->
+    <div class="team-creator-form-container">
+      <h2 mat-dailog-title>Create a Team</h2>
+      <form class="team-creator-form" [formGroup]="teamForm">
+
+        <!-- <h3 class="h3">Team Details</h3> -->
+        <mat-form-field class="mat" appearance="outline">
+          <input #teamName formControlName="name" matInput placeholder="Team Name">
+        </mat-form-field>
+        <mat-form-field class="mat" appearance="outline">
+          <textarea formControlName="description" matInput placeholder="Team Description"></textarea>
+        </mat-form-field>
+
+        <h4 class="h3">Invite Members {{teamName.value}}</h4>
+        <div class="team-members-invite-member">
+          <mat-form-field appearance="outline">
+            <input type="text" #inviteeName matInput type="text" placeholder="Name">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <input class="team-members-invite-input" type="email" #inviteeEmail matInput
+              placeholder="name@example.com">
+          </mat-form-field>
+          <div class="mat-form-field-wrapper team-members-invite-btn-wrapper">
+            <button class="team-members-invite-btn" mat-flat-button color="primary"
+              (click)="inviteMember(inviteeName.value, inviteeEmail.value)">Invite Member</button>
+          </div>
+        </div>
+
+        <h4 *ngIf="teamForm.get('invitees')['controls'].length">Invitees</h4>
+        <div class="invitees-section">
+          <div class="invitees" formArrayName="invitees" *ngFor="let item of teamForm.get('invitees')['controls']; let i = index">
+            <mat-form-field appearance="outline">
+              <input type="email" readonly [value]="item.value.emailId" matInput
+                placeholder="name@example.com">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <input type="text" readonly [value]="item.value.memberName" matInput
+              placeholder="name@example.com">
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+      <button mat-flat-button color="primary" (click)="createTeam()">Create</button>
+    </div>
+  </div>
+</mat-dialog-content>

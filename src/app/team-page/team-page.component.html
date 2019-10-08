@@ -1,0 +1,16 @@
+<div class="team-header">
+  <h3>
+    {{team.name}}
+  </h3>
+  <button mat-raised-button>Invite Team Members</button>
+</div>
+<div class="board-container">
+  <a [routerLink]="['/boards', board.boardId]" class="card-team" *ngFor="let
+    board of team.boards">
+    <mat-card class="board-card" color="primary" mat-button>{{board.boardName}}
+    </mat-card>
+  </a>
+
+  <button class="create-board-btn" mat-raised-button
+    (click)="boardOpenDialog()">Create Board</button>
+</div>

@@ -1,0 +1,14 @@
+<div class="navbar">
+  
+  <img id="logo-img-id" src="../assets/images/teamwork.png" alt="logo"  width="30px" height="30px">
+  <div>Proflo</div>
+  <div>
+    <button [routerLink]='[{outlets: { secondary: ["teams", "create"]}}]' mat-button>
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
+<div class="outlet-slot">
+  <router-outlet></router-outlet>
+  <router-outlet name="secondary"></router-outlet>
+</div>

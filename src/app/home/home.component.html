@@ -1,0 +1,32 @@
+<div class="image">
+  <h2 class= "nametag">Your Teams & Boards</h2>
+  <div *ngFor="let team of teams">
+    <div class="team-header">
+      <ngx-avatar class="padding-avatar" name="{{team.name}}" size="30" [round]="true"></ngx-avatar> 
+      <h3 class="padding-teamName">{{ team.name }}</h3>
+      <button class="slack" mat-flat-button color="primary" (click)="slackIntegration(team.teamId)">
+          Steps to Integrate with Slack
+       </button>
+    </div>
+    <div class="team-board-container">
+
+      <div  [routerLink]='["boards", board.boardId]' class="team-board" *ngFor="let board of team.teamBoards">
+        <h4>{{ board.boardName }}</h4>
+        <span>{{board.description}}</span>
+
+      </div>
+      <a *ngIf="team?.teamBoards?.length > 0" [routerLink]='[{outlets: { secondary: ["teams", team?.teamId,"boards"
+      , "create" ]}}]' class="create-team-board">
+        Create Board
+      </a>
+      <div class="new-team-sen-board"*ngIf="team?.teamBoards?.length == 0">
+        Managing Task and Workflows starts by creating a Board. <a [routerLink]='[{outlets: { secondary: ["teams", team?.teamId, "boards"
+        , "create" ]}}]'>Create a new Board.</a>
+      </div>
+    </div>
+  </div>
+  <div class="new-team-sen" *ngIf="teams?.length == 0">
+    Each work on Proflo by creating a Team. <a [routerLink]='[{outlets: {
+    secondary: ["teams" ,"create" ]}}]'>Create a new Team.</a>
+  </div>
+</div>

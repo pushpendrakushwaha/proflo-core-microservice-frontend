@@ -1,0 +1,20 @@
+.board-creator {
+  /* display: flex; */
+  background-image: url('../finalimage.jpg');
+  display: 100%;
+  height: 100%;
+}
+
+.board-creator-hero-unit {
+  flex: 1;
+  
+  background-position: center;
+  background-size: cover;
+  
+}
+
+.board-creator-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}

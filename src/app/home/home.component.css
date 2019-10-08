@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Satisfty&display=swap');
+.team-board-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.create-team-board, .team-board {
+  border-radius: 4px;
+  height: 100px;
+  width: 200px;
+  margin-right: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.create-team-board {
+  background-color: whitesmoke;
+}
+.team-board {
+  background-color:#e39393;
+  margin-bottom: 10px;
+}
+
+.team-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.invite-members {
+  margin-left: 10px;
+}
+
+h4 {
+  margin: 0;
+  margin-bottom: 5px;
+  font-family: 'Fredoka One', cursive !important;
+}
+
+.image
+{
+height: 100%;
+width: 100%;
+background-image: url("../image1.jpg");
+background-repeat: no-repeat;
+}
+.nametag{
+text-align: center;
+padding-top: 10px;
+font-size: 35px;
+font-style:normal;
+/* font-family: Arial, Helvetica, sans-serif !important; */
+font-family: 'Satisfy', cursive !important;
+color: black;
+margin-top: 0px;
+}
+.new-team-sen{
+text-align: center;
+font-family: 'Fredoka One', cursive !important;
+font-size: 20px !important;
+}
+
+.new-team-sen-board{
+  text-align: left;
+  font-family: 'Satisfy', cursive !important;
+  font-size: 20px !important;
+  }
+
+  .padding-teamName{
+    font-family: 'Fredoka One', cursive !important;
+    padding-left: 5px;
+  }
+  .padding-avatar {
+    padding-left: 10px;
+  }
+
+  span{
+    /* font-family: 'Caveat', cursive !important; */
+    font-family: 'Caveat', cursive !important;
+font-family: 'Bad Script', cursive !important;
+  }
+
+  .slack{
+    margin-left: 10px;
+  }

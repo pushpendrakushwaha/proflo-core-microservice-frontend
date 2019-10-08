@@ -1,0 +1,19 @@
+ <div class="list-form-container" >
+   <form [formGroup]="listForm">
+    <div class="list-form" >
+      <mat-form-field appearance="fill">
+        <input formControlName="listTitle" matInput placeholder="List Title">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <textarea matInput
+          formControlName="description"
+          cdkTextareaAutosize
+          placeholder="Description"
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5"></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+  <button mat-flat-button color="primary" (click)="createList()">Add List</button>
+ </div>

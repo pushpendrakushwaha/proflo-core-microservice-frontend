@@ -1,0 +1,53 @@
+{
+    "teams": [
+      {
+        "name": "sprint1",
+        "description": "Basic Functionalities"
+      },
+      {
+        "id": 2,
+        "teamPayload": {
+          "name": "Team1",
+          "description": "Team1 desc",
+          "invitees": [
+            {
+              "memberName": "prakash",
+              "emailId": "chaitubtech999@gmail.com"
+            }
+          ]
+        }
+      }
+    ],
+    "boards": [
+      {
+        "boardName": "Board1",
+        "description": "Board1 Desc"
+      }
+    ],
+    "lists": [
+      {
+        "listTitle": "MyList",
+        "description": "List Desc"
+      }
+    ],
+    "cards": [
+      {
+        "cardTitle": "Hello",
+        "description": "MyCard"
+      }
+    ],
+    "email": [
+      {
+        "memberName": "prakash",
+        "emailId": "prakashchaitu999@gmail.com"
+      },
+      {
+        "id": 1,
+        "emailId": "chaitubtech999@gmail.com"
+      },
+      {
+        "id": 2,
+        "emailId": "chaitubtech999@gmail.com"
+      }
+    ]
+  }

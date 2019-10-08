@@ -1,0 +1,16 @@
+<div>
+    <h1 mat-dailog-title>Delete Team</h1>
+    <mat-dialog-content>
+      <form [formGroup]="removeForm">
+        <div class="removeForm">
+        <mat-form-field>
+          <input formControlName="name" matInput placeholder="Team Name">
+        </mat-form-field>
+      </div>
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button>Cancel</button>
+      <button mat-button (click)="removeTeam()">Delete</button>
+    </mat-dialog-actions>
+  </div>

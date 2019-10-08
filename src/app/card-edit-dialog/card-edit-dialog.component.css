@@ -1,0 +1,41 @@
+.left {
+    flex: 4;
+}
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+.cardDesc {
+    width:300px;
+    height:500px;
+}
+.DescSave {
+    background: blue;
+    color:white;
+}
+.h6 {
+Margin:10px 0px;
+}
+
+.ComSave {
+    background: blue;
+    color:white;
+}
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+}
+.cmText {
+    padding-left:50px;
+}
+.assign {
+    padding-left:30px;
+}
+.save {
+    padding-left:20px;
+}
+.textarea {
+    height:60px;
+    /* width:180px; */
+}
+  

@@ -1,0 +1,120 @@
+# stages:
+#   - install
+#   - lint
+#   - test
+#   - build
+
+# install:
+#   stage: install
+#   image: node:12.9.0
+#   script:
+#     - npm install --silent
+#   artifacts:
+#     paths:
+#       - node_modules/
+#   tags:
+#   - immersive-cgi-w7-dotnet
+# lint:
+#   stage: lint
+#   image: node:12.9.0
+#   script:
+#     - npm run lint
+#   artifacts:
+#     paths:
+#      - node_modules/
+#   tags:
+#     - immersive-cgi-w7-dotnet
+
+# variables:
+#   CLI_VERSION: 8.0.3
+#   DOCKER_DRIVER: overlay
+
+# test:
+#   stage: test
+#   image: trion/ng-cli-karma:${CLI_VERSION}
+#   allow_failure: false
+#   script:
+#     - ng test --progress false --watch false
+#   tags:
+#     - immersive-cgi-w7-dotnet
+# build:
+#   stage: build
+#   image: trion/ng-cli
+#   script:
+#     - ng build --prod
+#   artifacts:
+#     paths:
+#       - dist/
+#   tags:
+#     - immersive-cgi-w7-dotnet
+
+stages:
+
+- lint
+- build
+- dockerize
+- deploy
+
+# variables:
+#   CLI_VERSION: 8.0.3
+#   DOCKER_DRIVER: overlay
+
+# test:
+#   stage: test
+#   image: trion/ng-cli-karma:${CLI_VERSION}
+#   allow_failure: false
+#   script:
+#     - ng test --progress false --watch false
+#   tags:
+#     - immersive-cgi-w7-dotnet
+cache: &global_cache
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+# build:
+#   stage: build
+#   image: trion/ng-cli
+#   script:
+#     - npm install
+#     - ng build --prod
+#   artifacts:
+#     paths:
+#       - dist/
+#   tags:
+#     - immersive-cgi-w7-dotnet
+
+# lint:
+#   image: trion/ng-cli
+#   stage: lint
+#   script:
+#     - npm install
+#     - npm run lint
+#   tags:
+#     - immersive-cgi-w7-dotnet
+
+dockerize:
+  image: docker
+  stage: dockerize
+  script:
+    - echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
+    - docker build -t proflo/core-microservice-frontend:${CI_COMMIT_SHORT_SHA} .
+    - docker tag proflo/core-microservice-frontend:${CI_COMMIT_SHORT_SHA} proflo/core-microservice-frontend:latest
+    - docker push proflo/core-microservice-frontend:${CI_COMMIT_SHORT_SHA}
+    - docker push proflo/core-microservice-frontend:latest
+  tags:
+    - immersive-cgi-w7-dotnet
+
+deploy:
+  stage: deploy
+  image: dtzar/helm-kubectl
+  script:
+    - kubectl config set-cluster k8s --server="${SERVER}"
+    - kubectl config set clusters.k8s.certificate-authority-data ${CERTIFICATE_AUTHORITY_DATA}
+    - kubectl config set-credentials gitlab --token="${USER_TOKEN}"
+    - kubectl config set-context default --cluster=k8s --user=gitlab
+    - kubectl config use-context default
+    - sed -i "s/<VERSION>/${CI_COMMIT_SHORT_SHA}/g" kube-manifest.yaml
+    - kubectl -n ${NAMESPACE} apply -f kube-manifest.yaml
+  tags:
+    - immersive-cgi-w7-dotnet

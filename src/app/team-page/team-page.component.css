@@ -1,0 +1,29 @@
+.board-card {
+  width: 175px;
+  border-radius: 4px;
+  background: #A7B0CA;
+  display: flex;
+  flex-direction: column;
+  height: 55px;
+  margin: 8px;
+}
+
+.board-container {
+  display: flex;
+  overflow-x: auto;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.create-board-btn {
+  width: 100px;
+  height: 90px;
+  margin: 8px;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.card-team {
+  text-decoration: none;
+}
+

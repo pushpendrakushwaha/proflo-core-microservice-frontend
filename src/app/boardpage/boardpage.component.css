@@ -1,0 +1,151 @@
+.list-container {
+  display: flex;
+  overflow-x: auto;
+  margin-top: 20px;
+  height:auto;
+}
+
+.list-container > * {
+  margin-left: 20px;
+}
+
+.list:hover {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.list {
+  width: 250px;
+  border-radius: 4px;
+  background: #e39393;
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+.list-title {
+  font-weight: 400;
+  padding-top: 8px;
+  padding-right: 8px;
+  padding-left: 8px;
+  padding-bottom: 0px;
+  font-family: 'Fredoka One', cursive !important;
+  font-size: 18.72px;
+}
+
+.list-card-container {
+  margin-top: 0px;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.list-card {
+  background: white;
+  border-radius: 4px;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+/* ::ng-deep .mat-input-underline {
+  display: none;
+} */
+
+textarea.mat-autosize { resize: auto !important; overflow: hidden !important; }
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+.icon {
+  height:36px;
+  width:36px;
+}
+/* .icon button {
+  visibility: hidden;
+} */
+
+.icon:hover button {
+  visibility: visible;
+}
+.background-image{
+height: 100%;
+width: 100%;
+background-image: url("../image1.jpg");
+}
+.board-title {
+  margin:0px 0px 18.72px;
+  padding-left:10px;
+  font-family: 'Fredoka One', cursive !important;}
+
+.board-desc {
+  padding-left:10px;
+  /* font-family: 'Caveat', cursive !important;*/
+  font-family: 'Caveat', cursive !important;
+  font-family: 'Bad Script', cursive !important;
+}
+
+.cardDueDate {
+    color:F41903;
+}
+.cardOperation {
+  display:flex;
+  flex-direction: column;
+}
+.comment {
+  padding-left:20px;
+  padding-right:10px;
+}
+.icon {
+  padding-right:20px;
+}
+.edit-button {
+  padding-left:20px;
+  width:60px;  
+}
+.cardOp {
+  display: flex;
+  flex-direction: row;
+}
+p{
+  font-family: 'Fredoka One', cursive !important;
+  margin: 2px;
+}
+.dots {
+  padding-left:20px;
+  position: relative;
+  /* right:50px; */
+  float: right;
+}
+.bId {
+  padding-left:20px;
+  font-size:10px;
+  padding-left:0px;
+  padding-right:0px;
+}
+.lId {
+  /* padding-left:50px; */
+  /* padding-left:37%; */
+  margin-top:0px;
+  margin-bottom:0px;
+  float:right;
+  font-size:10px;
+  padding-left:0px;
+  padding-right:0px;
+}
+.listOp {
+  display:flex;
+  flex-direction:column;
+}

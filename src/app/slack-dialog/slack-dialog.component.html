@@ -1,0 +1,41 @@
+<div class="head">
+  <div>
+    <h2 class="primary">
+      Steps to Integrate Proflo with Slack
+      <button class="close" (click)="close()">
+        <mat-icon class="icon">close</mat-icon>
+      </button>
+    </h2>
+  </div>
+  <div class="slackDialog">
+    <ol>
+      <li>
+        <p>Open Your Slack Workspace and add ProfloApp to your Workspace</p>
+      </li>
+      <li>
+        <p>
+          Hit /proflo help to check the different operations to perform on
+          Proflo
+        </p>
+      </li>
+      <li>
+        <p>
+          To bind the particular Team in slack
+          <button mat-button class="bId" (click)="getTeamId(teamId)">
+            Copy TeamId
+          </button>
+        </p>
+      </li>
+      <li>
+        <p>
+          You can get the boardId from boardpage and listId from list
+        </p>
+      </li>
+      <li>
+        <p>
+          Follow the /proflo help to know the operations.
+        </p>
+      </li>
+    </ol>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div>
+    <!-- <h2 mat-dialog-title>{{commentText}}</h2> -->
+    <mat-dialog-content class="cmText" [formGroup]="commentForm">
+        <mat-form-field>
+            <textarea class="textarea"  matInput placeholder="Share Comments" formControlName="commentText"></textarea>
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <div class="save">
+            <button mat-raised-button color="primary" (click)="createComment()">Save</button>
+        </div>
+    </mat-dialog-actions>   
+ <!-- <div class="assign">
+        <mat-form-field>
+            <span>Assignees</span>
+            <mat-select placeholder="Assignees" [formControl]="cardAssignees" multiple>
+                <mat-select-trigger>
+                    {{cardAssignees.value ? cardAssignees.value[0] : ''}}
+                    <span *ngIf="cardAssignees.value?.length > 1" class="example-additional-selection">
+                        (+{{cardAssignees.value.length - 1}} {{cardAssignees.value?.length === 2 ? 'other' : 'others'}})
+                    </span>
+                </mat-select-trigger>
+                <mat-option *ngFor="let cardAssignees of cardAssigneesList" [value]="cardAssignees">{{cardAssignees}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div> -->
+</div>

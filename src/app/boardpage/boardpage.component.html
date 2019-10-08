@@ -1,0 +1,56 @@
+<div class="background-image">
+  <h3 class="board-title">{{board?.boardName}}
+     <button mat-button class="bId" (click)="getBoardId(board.boardId)">Copy BoardId</button>
+  </h3>
+  <span class="board-desc">{{board?.description}}</span>
+  <div class="list-container" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="onListDrop($event)">
+    <div class="list" *ngFor="let list of board?.boardLists" cdkDragLockAxis="x" cdkDrag>
+      <div class="listOp">
+          <div class="list-title">{{list.listTitle}}
+              <button mat-button class="lId" (click)="getListId(list.listId)">Copy ListId</button>
+           </div>
+      </div>
+      <div class="list-card-container" cdkDropList id="{{list.listId}}" [cdkDropListData]="list.cards"
+        [cdkDropListConnectedTo]="lists" (cdkDropListDropped)="onCardDrop($event)">
+        <div [class.mat-elevation-z2]="isElevationActive" class="list-card" id="{{card.cardId}}"
+          *ngFor="let card of list.cards" cdkDrag>
+          <p>{{card.cardTitle}}</p>
+          <!-- {{card.dueDate}} -->
+          <!-- {{card.dueDate | date}} -->
+          <span class="cardOperation">
+            <span class="cardDueDate">{{card.dueDate | date}}</span>
+            <div class=cardOp>
+              <div class="icon">
+                <button class="edit-button" mat-button (click)="OnClickCard(card)">
+                  <mat-icon class="icon">textsms</mat-icon>
+                </button>
+              </div>
+              <button class="comment" mat-button (click)="onCommentsClick(card.cardId)">
+                  <mat-icon class="icon">comment</mat-icon>
+              </button>
+            </div>
+          </span>
+        </div>
+      </div>
+      <div>
+        <app-card-creator (cardCreated)="onCardCreated($event)" *ngIf="cardCreationEnabledFor == list.listId"
+          [boardId]="boardId" [listId]="list.listId"></app-card-creator>
+
+        <button mat-button *ngIf="cardCreationEnabledFor != list.listId" (click)="enableCardCreation(list.listId)">Add
+          card</button>
+      </div>
+    </div>
+    <div>
+      <app-list-creator (listCreated)="onListCreated()" [boardId]="board?.boardId" *ngIf="isListCreationEnabled">
+      </app-list-creator>
+      <button *ngIf="!isListCreationEnabled" mat-button mat-raised-button (click)="enableListCreation()">Create
+        List</button>
+    </div>
+    <!-- <div>
+      <app-card-edit-dialog (commentCreated) ="onCommentCreated($event)"
+      [boardId]="boardId" [listId]="list.listId" [cardId]="cardId"></app-card-edit-dialog>
+      <button mat-button (click)="enableCommentCreation(card.cardId)"><mat-icon>edit</mat-icon>
+        </button>
+    </div> -->
+  </div>
+</div>

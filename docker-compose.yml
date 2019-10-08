@@ -1,0 +1,9 @@
+version: "3"
+services:
+  core-microservice-frontend:
+    image: proflo/core-microservice-frontend:<VERSION>
+    build: .
+    labels:
+      app: core-microservice-frontend
+    ports:
+      - "4300:80"

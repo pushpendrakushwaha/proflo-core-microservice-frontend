@@ -1,0 +1,112 @@
+<div>
+  <form [formGroup]="cardForm">
+    <div class="cardform">
+      <mat-form-field appearance="fill">
+        <textarea
+          matInput
+          formControlName="cardTitle"
+          cdkTextareaAutosize
+          placeholder="Card Title"
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5"
+        ></textarea>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <textarea
+          matInput
+          formControlName="description"
+          cdkTextareaAutosize
+          placeholder="Description"
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5"
+        ></textarea>
+      </mat-form-field>
+
+      <!-- <div>
+          <h3 class="h3">Invite Members to {{ teamName.value }}</h3>
+          <div class="team-members-invite-member">
+            <mat-form-field appearance="outline">
+              <input
+                type="text"
+                #inviteeName
+                matInput
+                type="text"
+                placeholder="Name"
+              />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <input
+                type="email"
+                class="team-members-invite-input"
+                type="email"
+                #inviteeEmail
+                matInput
+                placeholder="name@example.com"
+              />
+            </mat-form-field>
+            <div class="mat-form-field-wrapper team-members-invite-btn-wrapper">
+              <button
+                class="team-members-invite-btn"
+                mat-flat-button
+                color="primary"
+                (click)="inviteMember(inviteeName.value, inviteeEmail.value)"
+              >
+                Invite Member
+              </button>
+            </div>
+          </div>
+  
+          <h4 *ngIf="teamForm.get('invitees')['controls'].length">Invitees</h4>
+          <div class="invitees-section">
+            <div
+              class="invitees"
+              formArrayName="invitees"
+              *ngFor="
+                let item of teamForm.get('invitees')['controls'];
+                let i = index
+              "
+            >
+              <mat-form-field appearance="outline">
+                <input
+                  type="email"
+                  readonly
+                  [value]="item.value.emailId"
+                  matInput
+                  placeholder="name@example.com"
+                />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <input
+                  type="text"
+                  readonly
+                  [value]="item.value.memberName"
+                  matInput
+                  placeholder="name@example.com"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+        </div> -->
+
+      <!-- <mat-form-field class="example-full-width">
+          <input matInput formControlName="dueDate" [matDatepickerFilter]="myFilter" [matDatepicker]="picker"
+              placeholder="Set Due Date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="dueDate"
+          [matDatepicker]="picker"
+          placeholder="Choose a date"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </form>
+  <button mat-button (click)="createCard()">Add Card</button>
+</div>
